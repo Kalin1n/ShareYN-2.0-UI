@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import createHistory from "history/createBrowserHistory"
+
+import { Router, Switch, Route } from 'react-router';
+
+import Homepage from "./Components/Homepage"
+import Authpage from "./Components/Auth"
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import rootReducer from "./Store/reducer.js"
+// create store 
+
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+        <Router history={createHistory()}> 
+          <Switch>
+            <Route path="/" component={Homepage} exact/>
+            <Route path="/auth" component={Authpage} exact/>
+            <Route path="/write" exact/>
+            <Route path="/read" exact/>
+          </Switch>
+        </Router>
+      </Provider>
     </div>
   );
 }
