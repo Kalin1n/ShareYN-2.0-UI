@@ -1,16 +1,18 @@
 import React from "react";
-import SigninForm from "./Signin/index.js"
-import RegisterForm from "./Register/index.js"
+import SigninContainer from "./Signin/signInContainer.js"
+import RegisterContainer from "./Register/registerContainer.js"
+
 function Authpage(){
     return(
         <div>
             <h1> Authentication </h1> 
             <div> 
-                <SigninForm/>
-                <RegisterForm/>
+                <SigninContainer/>
+                <RegisterContainer/>
             </div>
         </div>
     )
 }
+
 
 export default Authpage;

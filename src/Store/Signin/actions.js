@@ -1,13 +1,13 @@
 
-export const SIGN_IN_CHANGE_NICKNAME = 'SIGN_IN_CHANGE_NICKNAME';
+export const SIGN_IN_CHANGE_EMAIL = 'SIGN_IN_CHANGE_EMAIL';
 export const SIGN_IN_CHANGE_PASSWORD = 'SIGN_IN_CHANGE_PASSWORD';
 export const SET_STATUS = 'SET_STATUS';
 export const SIGN_IN = 'SIGN_IN';
 export const SEND_SIGN_IN = 'SEND_SIGN_IN';
 
-export const setNicknameText = (nickname) => ( {
-    type : SIGN_IN_CHANGE_NICKNAME,
-    payload : nickname
+export const setEmailText = (email) => ( {
+    type : SIGN_IN_CHANGE_EMAIL,
+    payload : email
 })
 
 export const setPasswordText = (password) => ( {
@@ -36,17 +36,17 @@ export const actionRejected = ( error ) => ( {
 
 // Thunk wrap 
 
-export  function signIn (nickname, password){
+export  function signIn (email, password){
     return async dispatch => {
         dispatch(actionPending())
-        console.log('Sign in otrabativaet',nickname, password);
-           var data =  await( await fetch('http://localhost:5000/signin',{
+        console.log('Sign in otrabativaet',email, password);
+           var data =  await( await fetch('http://localhost:4000/signin',{
                 headers : {
                     'Content-Type':"application/json",
                     'Accept' :'application/json'
                 },
                 method : 'POST',
-                body : JSON.stringify({nickname, password})
+                body : JSON.stringify({email, password})
             })).json()
            if(!!data.signIn){
                dispatch(actionResolved(data))

@@ -1,11 +1,11 @@
-import {SIGN_IN_CHANGE_NICKNAME,
+import {SIGN_IN_CHANGE_EMAIL,
     SIGN_IN_CHANGE_PASSWORD,
     SIGN_IN,
    SEND_SIGN_IN, SET_STATUS
 } from './actions.js';
     
 const defaultState = { 
-    nickname : '',
+    email : '',
     password : '',
     status : 'empty',
     payload : null,
@@ -14,8 +14,8 @@ const defaultState = {
 export const signInReducer = (state = defaultState, action) => {
     //console.log(state)
     switch (action.type){
-        case SIGN_IN_CHANGE_NICKNAME :
-            return  {...state, nickname : action.payload}
+        case SIGN_IN_CHANGE_EMAIL :
+            return  {...state, email : action.payload}
         case SIGN_IN_CHANGE_PASSWORD :
             return  {...state, password : action.payload}
         case SIGN_IN : 
