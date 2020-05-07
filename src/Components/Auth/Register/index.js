@@ -43,7 +43,6 @@ class RegisterForm extends Component{
             console.log("name : ", this.props.name, " email : ", this.props.email, " nickname : ", this.props.nickname)
             this.props.register(this.props.name, this.props.email, this.props.nickname, this.props.password);
         }
-        
 
     }
 

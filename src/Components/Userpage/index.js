@@ -1,37 +1,40 @@
 import React, { Component } from "react";
+import ChangeAvatar from "./userUpdateAvatar.js";
+import { connect } from "react-redux";
 
-class UserAvatar extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            selectedFile : null,
-            loaded : false
-        }
-        this.fileAdd = this.fileAdd.bind(this);
-        this.sendFile = this.sendFile.bind(this);
-    }
-    async fileAdd(event){
-        await this.setState({selectedFile : event.target.files[0], loaded : true});
-        console.log("State : ",this.state)
-    }
-    sendFile(event){
-        event.preventDefault();
-        let data = new FormData();
-        data.append('file', this.state.selectedFile);
-        console.log("Data : ", data);
-        fetch("http://localhost:4000/add-avatar", {
-            method : "POST",    
-            body : data
-        });
-    }
+import { setAvatar, sendAvatar } from "../../Store/ChangeUserAvatar/actions.js"
+
+class UserPage extends Component{
     render(){
         return(
-            <div>
-                <input type="file" onChange={this.fileAdd}/>
-                <button onClick={this.sendFile}> Send ! </button>
-            </div>
+            <>
+                <ChangeAvatar
+                       // values
+                    userNewAvatar={this.props.userNewAvatar}
+                    newAvatarLoad={this.props.newAvatarLoad}
+                    newAvatarError={this.props.newAvatarError}
+                    newAvatarStatus={this.props.newAvatarStatus}
+                      // functions 
+                    setAvatar={this.props.setAvatar}
+                    sendNewAvatar={this.props.sendAvatar}
+                />
+            </>
         )
     }
 }
 
-export default UserAvatar;
+const mapStateToProps = ( state ) => {
+    return {
+        userNewAvatar : state.changeAvatar.newFile,
+        newAvatarError : state.changeAvatar.error, 
+        newAvatarLoad : state.changeAvatar.loaded,
+        newAvatarStatus : state.changeAvatar.status
+    }
+}
+
+const mapDispatchToProps = {
+    setAvatar,
+    sendAvatar
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage); 
