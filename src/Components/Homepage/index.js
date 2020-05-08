@@ -1,11 +1,16 @@
 import React from "react";
-
+import Basicpage from "../Basicpage/index";
+import { Heading, Box, Main } from "grommet";
 
 function Homepage(){
     return(
-        <div>
-            <h3> Home page share yn 2.0 </h3>
-        </div> 
+        <Basicpage>
+            <Box>
+                <Main>
+                    <Heading> Share yn 2.0 </Heading>
+                </Main>
+            </Box> 
+        </Basicpage>
     )
 }
 

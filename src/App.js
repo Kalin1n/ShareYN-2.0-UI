@@ -6,6 +6,7 @@ import { Router, Switch, Route } from 'react-router';
 import Homepage from "./Components/Homepage";
 import Authpage from "./Components/Auth";
 import UserPage from './Components/Userpage/index.js';
+
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';

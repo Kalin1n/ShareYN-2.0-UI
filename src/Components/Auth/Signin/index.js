@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grommet, grommet, Box, Form, TextInput, FormField, Button, Heading } from "grommet";
 
 class SigninForm extends Component{
     constructor(props){
@@ -29,13 +30,20 @@ class SigninForm extends Component{
 
     render(){
         return(
-        <div>
-            <form>
-                <input type="email" value={this.props.email} onChange={this.changeEmail} placeholder="Email"/>
-                <input type="password" value={this.props.password} onChange={this.changePassword} placeholder="Password"/>
-            </form>
-            <button onClick={this.signIn}> Sign in </button>
-        </div> 
+        <Grommet theme={grommet}>
+            <Box width="medium" gap="medium">
+                <Heading> Sign in </Heading>
+                <Form> 
+                    <FormField>
+                        <TextInput type="email" value={this.props.email} onChange={this.changeEmail} placeholder="Email"/>
+                    </FormField>
+                    <FormField>
+                        <TextInput type="password" value={this.props.password} onChange={this.changePassword} placeholder="Password"/>
+                    </FormField>
+                </Form>
+                <Button primary size="medium" label="Sign In" onClick={this.signIn}/>
+            </Box>
+        </Grommet>
         )
     }
 }

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import ChangeAvatar from "./userUpdateAvatar.js";
 import { connect } from "react-redux";
-
+import Basicpage from "../Basicpage/index";
 import { setAvatar, sendAvatar } from "../../Store/ChangeUserAvatar/actions.js"
 
 class UserPage extends Component{
     render(){
         return(
-            <>
+            <Basicpage>
                 <ChangeAvatar
                        // values
                     userNewAvatar={this.props.userNewAvatar}
@@ -18,7 +18,7 @@ class UserPage extends Component{
                     setAvatar={this.props.setAvatar}
                     sendNewAvatar={this.props.sendAvatar}
                 />
-            </>
+            </Basicpage>
         )
     }
 }

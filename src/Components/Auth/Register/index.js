@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Grommet, grommet, Box, Form, TextInput, FormField, Button, Heading } from "grommet";
 
 class RegisterForm extends Component{
     constructor(props){
@@ -48,17 +49,29 @@ class RegisterForm extends Component{
 
     render(){
         return(
-            <div>
-                <h1>Registration</h1> 
-                <form>
-                    <input type="name" placeholder="Name" value={this.props.name} onChange={this.nameChange}/>
-                    <input type="email" placeholder="Email" value={this.props.email} onChange={this.emailChange}/>
-                    <input type="text" placeholder="Nickname" value={this.props.nickname} onChange={this.nicknameChange}/>
-                    <input type="password" placeholder="password" value={this.props.password} onChange={this.passwordChange}/>
-                    <input type="password" placeholder="password again" value={this.props.passwordCheck} onChange={this.passwordCheckChange}/>
-                </form>
-                <button onClick={this.sendRequest}> Register </button>
-            </div>
+            <Grommet  theme={grommet}>
+                <Box width="medium" gap="medium">
+                    <Heading>Registration </Heading>
+                    <Form>
+                        <FormField label="Name">
+                            <TextInput type="name" placeholder="Name" value={this.props.name} onChange={this.nameChange}/>
+                        </FormField>
+                        <FormField label="Email">
+                            <TextInput type="email" placeholder="Email" value={this.props.email} onChange={this.emailChange}/>
+                        </FormField>
+                        <FormField label="Nickname">
+                            <TextInput type="text" placeholder="Nickname" value={this.props.nickname} onChange={this.nicknameChange}/>
+                        </FormField>
+                        <FormField label="Password">
+                            <TextInput type="password" placeholder="password" value={this.props.password} onChange={this.passwordChange}/>
+                        </FormField>
+                        <FormField label="Password again">
+                            <TextInput type="password" placeholder="password again" value={this.props.passwordCheck} onChange={this.passwordCheckChange}/>
+                        </FormField>
+                    </Form> 
+                    <Button primary size="medium" label="Register" onClick={this.sendRequest}/> 
+                </Box>
+            </Grommet>
         )
     }
 }
