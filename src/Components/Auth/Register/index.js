@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { Grommet, grommet, Box, Form, TextInput, FormField, Button, Heading } from "grommet";
+import { Grommet, grommet, Box, Form, TextInput, FormField, Button, Heading, RadioButtonGroup, Select } from "grommet";
 
 class RegisterForm extends Component{
     constructor(props){
         super(props);
+        this.state = { 
+            sexOptions : [{value : "M", label : "Male"}, {value : "F", label : "Female"}],
+            countryOptions : [{value : "ukr", label : "Ukraine 🇺🇦"}, {value : "ger", label : "Germany 🇩🇪"}, {value : "gbr", label : "Grear britan 🇬🇧"}]
+        }
         this.nameChange = this.nameChange.bind(this);
         this.emailChange = this.emailChange.bind(this);
         this.nicknameChange = this.nicknameChange.bind(this);
@@ -53,11 +57,17 @@ class RegisterForm extends Component{
                 <Box width="medium" gap="medium">
                     <Heading>Registration </Heading>
                     <Form>
-                        <FormField label="Name">
+                        <FormField label="Name" required>
                             <TextInput type="name" placeholder="Name" value={this.props.name} onChange={this.nameChange}/>
+                        </FormField>
+                        <FormField label="Gender">
+                            <RadioButtonGroup name="radio" options={this.state.sexOptions}/>
                         </FormField>
                         <FormField label="Email">
                             <TextInput type="email" placeholder="Email" value={this.props.email} onChange={this.emailChange}/>
+                        </FormField>
+                        <FormField label="Country">
+                            <Select name="select" placeholder="Input your country" options={this.state.countryOptions} labelKey="label" valueKey="value"/>
                         </FormField>
                         <FormField label="Nickname">
                             <TextInput type="text" placeholder="Nickname" value={this.props.nickname} onChange={this.nicknameChange}/>
