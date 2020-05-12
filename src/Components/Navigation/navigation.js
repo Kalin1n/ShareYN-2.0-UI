@@ -5,14 +5,14 @@ import { Grommet, Nav, Header, grommet, Box, Anchor } from "grommet";
 const items = [
     {label : "Authentification", href:"/auth"},
     {label : "User page", href:"/user"}, 
-    {label : "Articles", href:"/articles"}
+    {label : "Articles", href:"/read"}
 ];
 
 function Navigation(){
     return(
         <Grommet theme={grommet}>
             <Header background="dark-1" pad="medium">
-                <Box direction="row" align="center" gap="small">
+                <Box direction="row" align="center" gap="small">    
                     <Anchor color="white" href="/">
                         Share YN 2.0
                     </Anchor>

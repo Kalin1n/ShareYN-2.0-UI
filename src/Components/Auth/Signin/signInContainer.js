@@ -11,6 +11,8 @@ class SignInContainer extends Component{
                 email={this.props.email}
                 password={this.props.password}
                 error={this.props.error}
+                payload={this.props.payload}
+                status={this.props.status}
 
                 changeEmail={this.props.setEmailText}
                 changePassword={this.props.setPasswordText}
@@ -24,7 +26,9 @@ const mapStateToProps = ( state ) => {
     return {
         email : state.signIn.email,
         password : state.signIn.password,
-        error : state.signIn.error
+        error : state.signIn.error,
+        payload : state.signIn.payload,
+        status : state.signIn.status
     }
 }
 

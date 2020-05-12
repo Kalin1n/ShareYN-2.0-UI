@@ -1,4 +1,5 @@
 import { actionPending, actionResolved, actionRejected } from "../Signin/actions";
+
 export const REGISTER_CHANGE_NAME = 'REGISTER_CHANGE_NAME';
 export const REGISTER_CHANGE_SURNAME = 'REGISTER_CHANGE_SURNAME';
 export const REGISTER_CHANGE_EMAIL = 'REGISTER_CHANGE_EMAIL';

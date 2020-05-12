@@ -20,7 +20,6 @@ class UserAvatar extends Component{
                 <br/>
                 <button onClick={this.sendFile}> Send ! </button>
                 { 
-                
                 this.props.newAvatarStatus === "resolved" ? 
                     <h1> Upload done !</h1>
                     : 

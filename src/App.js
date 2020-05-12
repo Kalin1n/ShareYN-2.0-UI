@@ -6,6 +6,8 @@ import { Router, Switch, Route } from 'react-router';
 import Homepage from "./Components/Homepage";
 import Authpage from "./Components/Auth";
 import UserPage from './Components/Userpage/index.js';
+import ArticlesListContainer from "./Components/Readlist/index.js";
+import WritePageContainer from "./Components/Writepage/writePageContainer.js"
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -24,8 +26,8 @@ function App() {
           <Switch>
             <Route path="/" component={Homepage} exact/>
             <Route path="/auth" component={Authpage} exact/>
-            <Route path="/write" exact/>
-            <Route path="/read" exact/>
+            <Route path="/write" component={WritePageContainer} exact/>
+            <Route path="/read" component={ArticlesListContainer} exact/>
             <Route path="/user" component={UserPage} exact/>
           </Switch>
         </Router>

@@ -17,20 +17,18 @@ export const setPasswordText = (password) => ( {
  
 export const actionPending = () => (  {
      type: SET_STATUS, 
-     status: 'PENDING', 
-     payload: null, 
-     error: null 
+     status: 'PENDING'
 } )
-export const actionResolved = ( payload ) => ( { 
+export const actionResolved = ( token ) => ( { 
     type: SET_STATUS, 
-    status: 'RESOLVED', 
-    payload ,
+    status: 'RESOLVEDwehuwhe', 
+    payload : token,
     error: null 
 })
 export const actionRejected = ( error ) => ( { 
     type: SET_STATUS, 
     status: 'REJECTED', 
-    payload: null, 
+    payload : null, 
     error  
 })
 
@@ -40,7 +38,12 @@ export  function signIn (email, password){
     return async dispatch => {
         dispatch(actionPending())
         console.log('Sign in otrabativaet',email, password);
-           var data =  await( await fetch('http://localhost:4000/signin',{
+        if((email === "" && password === "") || (email === "")||(password ==="") ){
+            dispatch(actionRejected("Email and password values are empty!"));
+        }
+        else{
+            console.log('Hashed password : ', password);
+            var data =  await( await fetch('http://localhost:4000/signin',{
                 headers : {
                     'Content-Type':"application/json",
                     'Accept' :'application/json'
@@ -48,16 +51,19 @@ export  function signIn (email, password){
                 method : 'POST',
                 body : JSON.stringify({email, password})
             })).json()
-           if(!!data.signIn){
-               dispatch(actionResolved(data))
-           }
-           else{
+            console.log(data)
+            if(data.token){
+                console.log("Sjdishdh")
+                dispatch(actionResolved(data.token))
+                localStorage.setItem("userToken", data.token );
+            }
+            else{
                dispatch(actionRejected(data.error))
-           }
-        
-        return {
-            type : SET_STATUS,
-            payload : data
+            }
+            return {
+                type : SET_STATUS,
+                payload : data
+            }
         }
     }
 }

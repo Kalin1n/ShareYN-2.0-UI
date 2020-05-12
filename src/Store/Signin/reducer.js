@@ -8,7 +8,7 @@ const defaultState = {
     email : '',
     password : '',
     status : 'empty',
-    payload : null,
+    payload : "",
     error :null
 };
 export const signInReducer = (state = defaultState, action) => {
