@@ -38,15 +38,17 @@ export function createNewArticle (userToken, title, text){
         dispatch( newArticlePending())
         console.log("Data to send ", userToken, title, text);
         var response = await (await fetch("http://localhost:4000/create-article", { 
-            method : "POST",
             headers : {
-                "Authorization" : `Bearer `+userToken
+                "Content-Type" : "application/json"
             },
             body : JSON.stringify({ 
-                title, 
-                text
-            }).json()
-        }))
+                title : title, 
+                text: text, 
+                token : userToken
+            }),
+            method : "POST"
+        })).json()
+        
         console.log(response)
 
     }
