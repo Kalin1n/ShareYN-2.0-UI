@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Form, Input, Button, Checkbox, Typography} from "antd";
+import {Form, Input, Button, Checkbox, Typography, Result} from "antd";
 const {Title} = Typography;
 const layout = {
     labelCol: { span: 8 },
@@ -88,11 +88,12 @@ class RegisterForm extends Component{
                                 multiple={false} 
                                 onChange={event => this.setState({selected : event.value})}
                             />
-
-        </FormField>*/}
+                        </FormField>*/}
+                        {/*
                         <Form.Item  label="Nickname">
                             <Input type="text" placeholder="Nickname" value={this.props.nickname} onChange={this.nicknameChange}/>
                         </Form.Item >
+                        */}
                         <Form.Item  label="Password">
                             <Input type="password" placeholder="password" value={this.props.password} onChange={this.passwordChange}/>
                         </Form.Item >
@@ -102,7 +103,9 @@ class RegisterForm extends Component{
                         <Form.Item label="Submit"> 
                             <Button type="primary" onClick={this.sendRequest}> Registrer </Button>
                         </Form.Item>
-                    </Form>       
+                    </Form>   
+                    {this.props.status === "REJECTED" ? <Result>{this.props.error}</Result> : <> </> }
+                    {this.props.status === "RESOLVED" ? <Result status="success" title="User loged in!"/> :<></>}
            </>
         )
     }

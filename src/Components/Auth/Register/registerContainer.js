@@ -8,7 +8,6 @@ class RegiserContainer extends Component{
     render(){
         return(
             <RegisterForm
-
                 name={this.props.name}
                 email={this.props.email}
                 password={this.props.password}

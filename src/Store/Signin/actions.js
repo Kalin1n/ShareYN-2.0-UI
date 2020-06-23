@@ -21,7 +21,7 @@ export const actionPending = () => (  {
 } )
 export const actionResolved = ( token ) => ( { 
     type: SET_STATUS, 
-    status: 'RESOLVEDwehuwhe', 
+    status: 'RESOLVED', 
     payload : token,
     error: null 
 })

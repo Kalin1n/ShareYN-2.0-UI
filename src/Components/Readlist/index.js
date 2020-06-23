@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 import BasicPage from "../Basicpage/index.js";
 import { Link } from "react-router-dom";
-import { Row, Button, Col } from "antd";
+import { Row, Button, Col, Card } from "antd";
 
 
 const style = { border: '#0092ff', padding: '8px 0', };
@@ -37,11 +37,16 @@ class ArticlesListContainer extends Component{
                                 <h1> No data </h1> 
                                 : this.state.articles.map( 
                                         (artcl)=> 
-                                    <Col lassName="gutter-row" span={6}> 
-                                        <div style={style}>
-                                            <Link to={{pathname : `${root}/${artcl.title}}`}}>{artcl.title}</Link>
-                                        </div>
-                                    </Col>)}
+                                        <Col span={6}>
+                                            <Link to={{pathname : `${root}/${artcl.title}}`}}>
+                                                <Card size="small" title={artcl.title}>
+                                                    <p>Articles</p>
+                                                </Card>
+                                            </Link>
+                                        </Col>
+                                    
+                                 )
+                    }
                 </Row>
                     <Button type="link"> <Link to="/write">Create new article</Link> </Button>
                     
@@ -51,3 +56,11 @@ class ArticlesListContainer extends Component{
 }
 
 export default ArticlesListContainer;
+
+{/*
+                                    <Col lassName="gutter-row" span={6}> 
+                                        <div style={style}>
+                                            <Link to={{pathname : `${root}/${artcl.title}}`}}>{artcl.title}</Link>
+                                        </div>
+                                    </Col>
+                                    */}
