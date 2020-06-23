@@ -1,4 +1,5 @@
 import React from 'react';
+import 'antd/dist/antd.css';
 import createHistory from "history/createBrowserHistory";
 
 import { Router, Switch, Route } from 'react-router';
@@ -7,7 +8,8 @@ import Homepage from "./Components/Homepage";
 import Authpage from "./Components/Auth";
 import UserPage from './Components/Userpage/index.js';
 import ArticlesListContainer from "./Components/Readlist/index.js";
-import WritePageContainer from "./Components/Writepage/writePageContainer.js"
+import WritePageContainer from "./Components/Writepage/writePageContainer.js";
+import ArticlePage from "./Components/Readpage/index.js";
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -29,6 +31,7 @@ function App() {
             <Route path="/write" component={WritePageContainer} exact/>
             <Route path="/read" component={ArticlesListContainer} exact/>
             <Route path="/user" component={UserPage} exact/>
+            <Route path="/read/:article_title" component={ArticlePage} exact />
           </Switch>
         </Router>
       </Provider>

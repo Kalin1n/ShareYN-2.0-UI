@@ -1,15 +1,12 @@
 import React from "react";
 import Basicpage from "../Basicpage/index";
-import { Heading, Box, Main } from "grommet";
-
+import {Typography} from "antd"
+const {Title} = Typography;
+ 
 function Homepage(){
     return(
         <Basicpage>
-            <Box>
-                <Main>
-                    <Heading> Share yn 2.0 </Heading>
-                </Main>
-            </Box> 
+              <Title>Share YN 2.0 </Title>
         </Basicpage>
     )
 }

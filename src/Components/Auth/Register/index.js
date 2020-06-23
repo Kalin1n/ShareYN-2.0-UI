@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import { Grommet, grommet, Box, Form, TextInput, FormField, Button, Heading, RadioButtonGroup } from "grommet";
-
+import {Form, Input, Button, Checkbox, Typography} from "antd";
+const {Title} = Typography;
+const layout = {
+    labelCol: { span: 8 },
+    wrapperCol: { span: 16 },
+  };
 
 class RegisterForm extends Component{
     constructor(props){
@@ -63,19 +67,17 @@ class RegisterForm extends Component{
 
     render(){
         return(
-            <Grommet  theme={grommet}>
-                <Box width="medium" gap="medium">
-                    <Heading>Registration </Heading>
-                    <Form>
-                        <FormField label="Name" required>
-                            <TextInput type="name" placeholder="Name" value={this.props.name} onChange={this.nameChange}/>
-                        </FormField>
-                        <FormField label="Gender">
-                            <RadioButtonGroup name="radio" options={this.state.sexOptions}/>
-                        </FormField>
-                        <FormField label="Email">
-                            <TextInput type="email" placeholder="Email" value={this.props.email} onChange={this.emailChange}/>
-                        </FormField>
+           <>
+                    
+                    <Form {...layout}>
+                    <Title>Registration </Title>
+                        <Form.Item label="Name" required>
+                            <Input type="name" placeholder="Name" value={this.props.name} onChange={this.nameChange}/>
+                        </Form.Item >
+                        <Form.Item  label="Email">
+                            <Input type="email" placeholder="Email" value={this.props.email} onChange={this.emailChange}/>
+                        </Form.Item >
+
                         {/*<FormField label="Country">
                             <Select 
                                 name="select" 
@@ -88,19 +90,20 @@ class RegisterForm extends Component{
                             />
 
         </FormField>*/}
-                        <FormField label="Nickname">
-                            <TextInput type="text" placeholder="Nickname" value={this.props.nickname} onChange={this.nicknameChange}/>
-                        </FormField>
-                        <FormField label="Password">
-                            <TextInput type="password" placeholder="password" value={this.props.password} onChange={this.passwordChange}/>
-                        </FormField>
-                        <FormField label="Password again">
-                            <TextInput type="password" placeholder="password again" value={this.props.passwordCheck} onChange={this.passwordCheckChange}/>
-                        </FormField>
-                    </Form> 
-                    <Button primary size="medium" label="Register" onClick={this.sendRequest}/> 
-                </Box>
-            </Grommet>
+                        <Form.Item  label="Nickname">
+                            <Input type="text" placeholder="Nickname" value={this.props.nickname} onChange={this.nicknameChange}/>
+                        </Form.Item >
+                        <Form.Item  label="Password">
+                            <Input type="password" placeholder="password" value={this.props.password} onChange={this.passwordChange}/>
+                        </Form.Item >
+                        <Form.Item  label="Password again">
+                            <Input type="password" placeholder="password again" value={this.props.passwordCheck} onChange={this.passwordCheckChange}/>
+                        </Form.Item >
+                        <Form.Item label="Submit"> 
+                            <Button type="primary" onClick={this.sendRequest}> Registrer </Button>
+                        </Form.Item>
+                    </Form>       
+           </>
         )
     }
 }
