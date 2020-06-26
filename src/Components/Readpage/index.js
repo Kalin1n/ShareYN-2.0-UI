@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+import ReactMarkdown from "react-markdown";
+import {Typography} from "antd";
 import BasicPage from "../Basicpage/index.js";
+
+const {Title} = Typography;
 
 class ArticlePageContainer extends Component{
     constructor(){
@@ -14,9 +18,9 @@ class ArticlePageContainer extends Component{
     async componentDidMount(){
         let url = this.props.match.params.article_title;
         console.log(url)
-        let data = await ( await fetch(`http://localhost:4000/article/${url}`)).json();
+        let data = await ( await fetch("http://localhost:4000/article/"+this.props.match.params.article_title.trim("}"))).json();
         console.log("Data from server : ",data);
-        this.setState({loaded : true, article: data.article.text })
+        this.setState({loaded : true, article: data.article})
         console.log(this.state)
     }
 
@@ -24,7 +28,7 @@ class ArticlePageContainer extends Component{
         return(
             <BasicPage>
                 <article>
-
+        {this.state.loaded == false ? <p>Loading</p> :<><Title>{this.state.article.title}</Title> <ReactMarkdown source={this.state.article.text} /></>}
                 </article>
             </BasicPage>
         )

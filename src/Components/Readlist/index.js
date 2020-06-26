@@ -38,7 +38,7 @@ class ArticlesListContainer extends Component{
                                 : this.state.articles.map( 
                                         (artcl)=> 
                                         <Col span={6}>
-                                            <Link to={{pathname : `${root}/${artcl.title}}`}}>
+                                            <Link to={{pathname : `${root}/`+artcl.title}}>
                                                 <Card size="small" title={artcl.title}>
                                                     <p>Articles</p>
                                                 </Card>
