@@ -1,4 +1,4 @@
-
+import config from "../../config";
 export const SIGN_IN_CHANGE_EMAIL = 'SIGN_IN_CHANGE_EMAIL';
 export const SIGN_IN_CHANGE_PASSWORD = 'SIGN_IN_CHANGE_PASSWORD';
 export const SET_STATUS = 'SET_STATUS';
@@ -43,7 +43,7 @@ export  function signIn (email, password){
         }
         else{
             console.log('Hashed password : ', password);
-            var data =  await( await fetch('http://localhost:4000/signin',{
+            var data =  await( await fetch(config.host+"signin" /*'http://localhost:4000/signin'*/,{
                 headers : {
                     'Content-Type':"application/json",
                     'Accept' :'application/json'

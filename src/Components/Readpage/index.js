@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import config from "../../config";
 import ReactMarkdown from "react-markdown";
 import {Typography} from "antd";
 import BasicPage from "../Basicpage/index.js";
@@ -18,7 +19,7 @@ class ArticlePageContainer extends Component{
     async componentDidMount(){
         let url = this.props.match.params.article_title;
         console.log(url)
-        let data = await ( await fetch("http://localhost:4000/article/"+this.props.match.params.article_title.trim("}"))).json();
+        let data = await ( await fetch(config.host+"article/"+this.props.match.params.article_title.trim("}"))).json();
         console.log("Data from server : ",data);
         this.setState({loaded : true, article: data.article})
         console.log(this.state)

@@ -1,3 +1,4 @@
+import config from "../../config";
 export const REGISTER_CHANGE_NAME = 'REGISTER_CHANGE_NAME';
 export const REGISTER_CHANGE_SURNAME = 'REGISTER_CHANGE_SURNAME';
 export const REGISTER_CHANGE_EMAIL = 'REGISTER_CHANGE_EMAIL';
@@ -56,7 +57,7 @@ export const registerRejected = ( error ) => ( {
 export function register( name, email, nickname, password ){
     return async dispatch => {
         dispatch(registerPending())
-        var data = await ( await fetch('http://localhost:4000/create-user',{
+        var data = await ( await fetch(config.host + "create-user" /*'http://localhost:4000/create-user'*/,{
             headers : {
                 'Content-Type':"application/json",
                 'Accept' :'application/json'

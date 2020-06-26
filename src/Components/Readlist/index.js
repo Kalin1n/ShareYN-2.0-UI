@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import config from "../../config";
 import BasicPage from "../Basicpage/index.js";
 import { Link } from "react-router-dom";
 import { Row, Button, Col, Card } from "antd";
@@ -17,7 +17,7 @@ class ArticlesListContainer extends Component{
     }
 
     async componentDidMount(){
-        var response = await ( await fetch("http://localhost:4000/all-articles", {
+        var response = await ( await fetch( config.host+"all-articles" /*"http://localhost:4000/all-articles"*/, {
             method : "GET"
         })).json();
         console.log("DATA", response)
