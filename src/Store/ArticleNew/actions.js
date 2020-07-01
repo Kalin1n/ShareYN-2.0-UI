@@ -47,9 +47,13 @@ export function createNewArticle (userToken, title, text){
                 token : userToken
             }),
             method : "POST"
-        })).json()
-        
-        console.log(response)
+        })).json();
+        if(response.status === 200){ 
+            dispatch(newArticleResolved(response));
+        }
+        else{ 
+            dispatch(newArticleRejected(response));
+        }
 
     }
 }

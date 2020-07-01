@@ -34,7 +34,7 @@ class ArticlesListContainer extends Component{
                 <h1> Articles </h1>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     {this.state.payload === false ? 
-                                <h1> No data </h1> 
+                                <h1> Loading... </h1> 
                                 : this.state.articles.map( 
                                         (artcl)=> 
                                         <Col span={6}>

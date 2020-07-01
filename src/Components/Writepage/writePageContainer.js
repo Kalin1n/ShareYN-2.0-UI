@@ -9,7 +9,12 @@ class WritePageContainer extends Component{
         return(
             <BasicPage>
                 <WritePageEditor
-                    createNewArticle={this.props.createNewArticle   }
+                    createNewArticle={this.props.createNewArticle}
+                    setNewArticleText={this.props.setNewArticleText}
+                    setNewArticleTitle={this.props.setNewArticleTitle}
+                    title={this.props.title}
+                    text={this.props.text}
+                    status={this.props.status}
                 />
             </BasicPage>
         )
@@ -19,7 +24,8 @@ class WritePageContainer extends Component{
 const mapStateToProps = ( state ) => {
     return {
         title : state.newArticleReducer.title,
-        text : state.newArticleReducer.text
+        text : state.newArticleReducer.text,
+        status : state.newArticleReducer.status,
     }
 }
  

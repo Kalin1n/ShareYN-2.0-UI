@@ -14,6 +14,9 @@ class RegiserContainer extends Component{
                 passwordCheck={this.props.passwordCheck}
                 nickname={this.props.nickname}
                 error={this.props.error}
+                status={this.props.status}
+                payload={this.props.payload}
+
 
                 setEmailText={this.props.setEmailText}
                 setNameText={this.props.setNameText}
@@ -34,7 +37,9 @@ const mapStateToProps = ( state ) => {
         password : state.register.password,
         passwordCheck : state.register.passwordCheck,
         nickname : state.register.nickname, 
-        error : state.register.error    
+        error : state.register.error,
+        status : state.register.status,
+        payload : state.register.payload
     }
 }
 
