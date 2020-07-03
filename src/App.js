@@ -10,6 +10,7 @@ import UserPage from './Components/Userpage/index.js';
 import ArticlesListContainer from "./Components/Readlist/index.js";
 import WritePageContainer from "./Components/Writepage/writePageContainer.js";
 import ArticlePage from "./Components/Readpage/index.js";
+import NotFound from "./Components/NotFound";
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -26,17 +27,20 @@ function App() {
       <Provider store={store}>
         <Router history={createHistory()}> 
           <Switch>
-            <Route path="/" component={Homepage} exact/>
+            <Route path="/" component={Homepage} exact/> 
             <Route path="/auth" component={Authpage} exact/>
             <Route path="/write" component={WritePageContainer} exact/>
             <Route path="/read" component={ArticlesListContainer} exact/>
             <Route path="/user" component={UserPage} exact/>
             <Route path="/read/:article_title" component={ArticlePage} exact />
+            <Route component={NotFound} exact/>
           </Switch>
         </Router>
       </Provider>
     </div>
   );
 }
+
+
 
 export default App;

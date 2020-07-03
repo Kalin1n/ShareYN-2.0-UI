@@ -20,7 +20,11 @@ function Basicpage(props){
                 <div className="header">
                     <Menu theme="dark" mode="horizontal">
                         <Menu.Item key="1"><Link to="/">Home</Link></Menu.Item>
-                        <Menu.Item key="2"><Link to="/auth">Authentification</Link></Menu.Item>
+                        {
+                        token ?  
+                            <Menu.Item key="2"><Link to="/user">User page</Link></Menu.Item>
+                        : <Menu.Item key="2"><Link to="/auth">Authentification</Link></Menu.Item>
+                        }
                         <Menu.Item key="3"><Link to="/read">Read list</Link></Menu.Item>
                         <Menu.Item key="4"><Link to="/write">Write</Link></Menu.Item>
             
