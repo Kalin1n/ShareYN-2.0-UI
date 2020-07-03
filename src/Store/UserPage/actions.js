@@ -25,7 +25,7 @@ export function getUser(userToken){
     return async dispatch =>{
         dispatch(getUserPending());
         console.log("Token to find user : ", userToken);
-        var response = await (await fetch("http://localhost:4000/get-user", { 
+        var response = await (await fetch( config.host+"get-user", { 
             method : "GET", 
             headers : { 
                 'Authorization':'Bearer '+userToken
@@ -35,7 +35,7 @@ export function getUser(userToken){
         if(response.status === 200){ 
             dispatch(getUserResolved(response))
         }else{ 
-            dispatch(getUserRejected("Error"));
+            dispatch(getUserRejected())
         }
     };
 };

@@ -25,7 +25,6 @@ class UserPage extends Component{
                     <Space direction="vertical"> 
             {this.props.status === "Resolved" ?
                         <> 
-                            
                             <h2> Name : {this.props.payload.name}</h2>  
                             <h2> E-mail : {this.props.payload.email}</h2>
                             <h2> Registered : {this.props.payload.date} </h2>
