@@ -1,3 +1,4 @@
+import config from "../../config";
 export const AVATAR_CHANGE = "AVATAR_CHANGE";
 export const SET_NEW_AVATAR_STATUS = "SET_NEW_AVATAR_STATUS"; 
 
@@ -33,7 +34,7 @@ export function sendAvatar(file){
         console.log("NEW AVATAR SENDING ")
         var fileToSend = new FormData();
         fileToSend.append('file', file)
-        var data = await ( await fetch("http://localhost:4000/add-avatar", 
+        var data = await ( await fetch(config.host+"add-avatar", 
             {
                 method : "POST",
                 body : fileToSend
