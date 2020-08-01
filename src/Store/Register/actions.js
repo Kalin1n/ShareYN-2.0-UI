@@ -65,7 +65,7 @@ export function register( name, email, nickname, password ){
             method : 'POST',
             body : JSON.stringify({name, email, password})
         })).json()
-        console.log(data)
+        console.log(data)   
         if(data.status === 200 ){
             dispatch(registerResolved(data))
         }

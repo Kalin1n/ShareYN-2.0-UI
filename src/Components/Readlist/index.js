@@ -39,7 +39,7 @@ class ArticlesListContainer extends Component{
                                         (artcl)=> 
                                         <Col span={6}>
                                             <Link to={{pathname : `${root}/`+artcl.title}}>
-                                                <Card size="small" title={artcl.title}>
+                                                <Card size="small" title={artcl.title.replace("-", " ")}>
                                                     <p>Articles</p>
                                                 </Card>
                                             </Link>

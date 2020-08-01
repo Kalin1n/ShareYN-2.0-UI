@@ -15,6 +15,7 @@ export const setPasswordText = (password) => ( {
     payload : password
 })
  
+
 export const actionPending = () => (  {
      type: SET_STATUS, 
      status: 'PENDING'
@@ -43,7 +44,7 @@ export  function signIn (email, password){
         }
         else{
             console.log('Hashed password : ', password);
-            var data =  await( await fetch(config.host+"signin" /*'http://localhost:4000/signin'*/,{
+            var data =  await( await fetch(/*config.host+"signin"*/ 'http://localhost:4000/signin',{
                 headers : {
                     'Content-Type':"application/json",
                     'Accept' :'application/json'

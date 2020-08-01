@@ -6,7 +6,7 @@ import UserInfo from "./userInfo";
 import { connect } from "react-redux";
 import Basicpage from "../Basicpage/index";
 import { setAvatar, sendAvatar } from "../../Store/ChangeUserAvatar/actions.js";
-import {setOldPassword, setNewPasswordFF, setNewPasswordSF } from "../../Store/ChangePassword/actions.js";
+import {setOldPassword, setNewPasswordFF, setNewPasswordSF, changePassword } from "../../Store/ChangePassword/actions.js";
 
 
 class UserPage extends Component{
@@ -17,7 +17,7 @@ class UserPage extends Component{
                 <UserInfo 
                     status={this.props.status}
                     payload={this.props.payload}
-                    oldPassword={this.props.oldPassword}
+                    oldPassword={this.props.oldPassword}            
                     newPassword={this.props.newPassword}
                     newPasswordCheck={this.props.newPasswordCheck}
 
@@ -25,6 +25,7 @@ class UserPage extends Component{
                     setOldPassword={this.props.setOldPassword}
                     setNewPasswordFF={this.props.setNewPasswordFF}
                     setNewPasswordSF={this.props.setNewPasswordSF}
+                    changePassword={this.props.changePassword}
                 />
             </Basicpage>
         )
@@ -54,7 +55,8 @@ const mapDispatchToProps = {
     getUser,
     setOldPassword, 
     setNewPasswordFF, 
-    setNewPasswordSF
+    setNewPasswordSF,
+    changePassword
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPage); 

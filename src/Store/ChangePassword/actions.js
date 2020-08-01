@@ -40,6 +40,28 @@ const newPasswordRejected = (error ) => ({
     error
 });
 
-async function changePassword(){
-    // TO WRITE 
+export function changePassword(oldPassword, newPassword, newPasswordCheck){
+    return async dispatch => { 
+        dispatch(newPasswordPending());
+        var token = localStorage.getItem("userToken");
+        if(oldPassword === "" && newPassword === "" && newPasswordCheck === ""){ 
+            console.log("PUSTO ");
+            return;
+        }
+        else if (newPassword === newPasswordCheck){
+            var data = await ( await fetch("http://localhost:4000/set-password", { 
+                            method : "PUT",
+                            headers : { 
+                                Authorization : "Bearer "+token
+                            },
+                            body: { 
+                                oldPassword, 
+                                newPassword
+                            }
+                        }
+                    )
+                ).json();
+                console.log("Response : ", data);
+        };
+    };
 };  

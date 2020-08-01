@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 import { Layout, Menu, Typography, Button } from 'antd';
 import "./style.css"
 import { Popover } from "antd";
@@ -30,6 +31,11 @@ function Basicpage(props){
             
                     </Menu>
                     {
+                        props.status ? 
+                            <h1> Token tut </h1>
+                        : <h1> Tokena net </h1>
+                        }
+                    {
                     token?
                         <Popover placement="bottomRight" title="Cliclk that to log out" content={<Button onClick={logOut}> Log out</Button>}>
                             <Text className="status">Authorized  </Text>
@@ -52,4 +58,10 @@ function Basicpage(props){
     )
 }
 
-export default Basicpage;
+const mapStateToProps = (state) => {
+    return{ 
+        status : state.signIn.payload
+    }
+};
+
+export default connect(mapStateToProps,)(Basicpage);

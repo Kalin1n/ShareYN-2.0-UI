@@ -34,7 +34,7 @@ class UserInfo extends Component{
     }
     submitNewPassword(event){
         event.preventDefault(); 
-        
+        this.props.changePassword(this.props.oldPassword, this.props.newPassword, this.props.newPasswordCheck);
     }
     render(){
         return(
@@ -65,10 +65,10 @@ class UserInfo extends Component{
                                     <Input.Password size="large" placeholder="Old password" value={this.props.oldPassword} onChange={this.changeOldPassword}/>    
                                 </Form.Item> 
                                 <Form.Item >
-                                    <Input.Password  size="large" placeholder="New password" value={this.props.newPassord} onChange={this.newPasswordChange}/>    
+                                    <Input.Password  size="large" placeholder="New password" value={this.props.newPassword} onChange={this.newPasswordChange}/>    
                                 </Form.Item> 
                                 <Form.Item >
-                                    <Input.Password  size="large" placeholder="New password again" value={this.props.newPassordCheckChange} onChange={this.newPassordCheckChange} />    
+                                    <Input.Password  size="large" placeholder="New password again" value={this.props.newPasswordCheck} onChange={this.newPassordCheckChange} />    
                                 </Form.Item> 
                                 <Form.Item> 
                                     <Button type="primary" onClick={this.submitNewPassword}> Change password</Button>

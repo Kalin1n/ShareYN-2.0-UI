@@ -4,7 +4,7 @@ import ReactMde from "react-mde";
 import * as Showdown from "showdown";
 import "./styles.css"
 import "react-mde/lib/styles/css/react-mde-all.css";
-import {Result} from "antd"
+import {Result, Input} from "antd"
 import { TextInput, Button } from 'grommet';
 //import { Button, Box, TextInput } from 'grommet';
 
@@ -55,7 +55,7 @@ class WritePageEditor extends Component{
     render () {
       return (
         <div className="container">
-          <TextInput value={this.props.title} onChange={this.titleChange}/>
+          <Input value={this.props.title} onChange={this.titleChange}/>
           <ReactMde
             onChange={this.handleValueChange}
             value={this.props.text}
